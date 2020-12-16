@@ -4,12 +4,13 @@ function eventLogger {
     )
     
     $DAY = (Get-Date).Date.ToString().Split(" ")[0].Replace("/", "_")
+    $LOG_FOLDER = "logs\"
     $EVENT_LOG = "event_log_$DAY.txt"
 
     try{
-        "[$(Get-Date)] $MESSAGE" | Out-File -FilePath .\$EVENT_LOG -NoClobber
+        "[$(Get-Date)] $MESSAGE" | Out-File -FilePath .\$LOG_FOLDER\$EVENT_LOG -NoClobber
     }
     catch [System.IO.IOException] {
-        "[$(Get-Date)] $MESSAGE" | Out-File -FilePath .\$EVENT_LOG -NoClobber -Append
+        "[$(Get-Date)] $MESSAGE" | Out-File -FilePath .\$LOG_FOLDER\$EVENT_LOG -NoClobber -Append
     }
 }
