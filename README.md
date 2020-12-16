@@ -4,5 +4,5 @@ A script which is able to fetch lock screen wallpapers in Windows 10 as fast as 
 
 # How to Run?
 
-* Right click to ```Lockpaper.ps1``` and select ```Run with Powershell```
+* Right click to ```Shellpaper.ps1``` and select ```Run with Powershell```
 * That's all.
