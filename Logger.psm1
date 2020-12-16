@@ -1,4 +1,3 @@
-
 function eventLogger {
     param (
         [Parameter(Mandatory=$true)][string] $MESSAGE
