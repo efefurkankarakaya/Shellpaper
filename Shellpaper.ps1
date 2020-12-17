@@ -1,10 +1,8 @@
 Import-Module -Name .\Logger.psm1, .\FileOps.psm1
 
 $SYS_DRIVE = (Get-Location).Path.Split(":")[0]
-Write-Output $SYS_DRIVE
 $LOGS = "logs\"
 $WP_DIR = ($SYS_DRIVE + ":\Windows\Web\")
-Write-Output $WP_DIR
 $ASSET_DIR = "$env:LOCALAPPDATA\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\"
 $BASE = (Get-Location).Path + "\"
 $WALLPAPERS = "wallpapers\"
@@ -17,15 +15,6 @@ Start-Sleep 0.52
 Write-Output "Welcome $env:USERNAME"
 eventLogger -Message "Welcome $env:USERNAME"
 Start-Sleep 1.76
-Write-Output "Program is initializing for you.."
-eventLogger -Message "Program is initializing for you.."
-Start-Sleep 2.25
-Write-Output "3"
-Start-Sleep(1)
-Write-Output "2"
-Start-Sleep(1)
-Write-Output "1"
-Start-Sleep(0.6)
 
 createDirectory -DIR_NAME $WALLPAPERS -DIR_PATH $BASE
 createDirectory -DIR_NAME $ASSETS -DIR_PATH ($BASE + $WALLPAPERS)
@@ -69,6 +58,6 @@ Write-Output "You can find all nearby the script."
 eventLogger -Message "You can find them nearby the script."
 Write-Output (Get-Location).Path
 eventLogger -Message (Get-Location).Path
-eventLogger -Message "All processes are done.`n"
-Write-Output "Exiting.."
+eventLogger -Message "All processes are done."
+Write-Output "Exiting..`n"
 Start-Sleep 2.36
