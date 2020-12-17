@@ -1,4 +1,4 @@
-.\Logger.psm1
+Import-Module -Name .\Logger.psm1
 function createDirectory {
     param (
         [Parameter(Mandatory=$true)][string] $DIR_NAME,
