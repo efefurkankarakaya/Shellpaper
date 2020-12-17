@@ -3,7 +3,7 @@ Import-Module -Name .\Logger.psm1, .\FileOps.psm1
 $SYS_DRIVE = (Get-Location).Path.Split(":")[0]
 Write-Output $SYS_DRIVE
 $LOGS = "logs\"
-$WP_DIR = ($SYS_DRIVE + ":\Windows\Web\") # C:\Windows\Web
+$WP_DIR = ($SYS_DRIVE + ":\Windows\Web\")
 Write-Output $WP_DIR
 $ASSET_DIR = "$env:LOCALAPPDATA\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\"
 $BASE = (Get-Location).Path + "\"
@@ -55,7 +55,7 @@ if (Test-Path $ASSET_DIR){
         if ((Get-Item $ASSET_DIR$asset).Length -ge 30000){
             eventLogger -Message ("File Length: " + (Get-Item ($ASSET_DIR + $asset)).Length)
             eventLogger -Message ("File Path: " + ($ASSET_DIR + $asset))
-            Copy-Item ("${ASSET_DIR}${asset}") -Destination ($BASE + $WALLPAPERS + $ASSETS + [guid]::NewGuid().Guid + ".jpg")
+            Copy-Item (($ASSET_DIR + $asset)) -Destination ($BASE + $WALLPAPERS + $ASSETS + [guid]::NewGuid().Guid + ".jpg")
             Write-Output ("Copied: " + $asset)
             eventLogger -Message ("Copied: " + $asset)
         }
@@ -69,5 +69,6 @@ Write-Output "You can find all nearby the script."
 eventLogger -Message "You can find them nearby the script."
 Write-Output (Get-Location).Path
 eventLogger -Message (Get-Location).Path
-eventLogger -Message "Process done.`n"
+eventLogger -Message "All processes are done.`n"
+Write-Output "Exiting.."
 Start-Sleep 2.36

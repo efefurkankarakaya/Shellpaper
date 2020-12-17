@@ -9,8 +9,8 @@ function createDirectory {
     if (Test-Path ($DIR_PATH + $DIR_NAME)){
         Write-Output "[FileOps] Directory found: $DIR_NAME"
         eventLogger -Message "[FileOps] Directory found: $DIR_NAME"
-        Write-Output "[FileOps] Full path: $DIR_PATH$DIR_NAME"
-        eventLogger -Message "[FileOps] Full path: $DIR_PATH$DIR_NAME"
+        Write-Output ("[FileOps] Full path: " + ($DIR_PATH + $DIR_NAME))
+        eventLogger -Message ("[FileOps] Full path: " + ($DIR_PATH + $DIR_NAME))
     }
     else{
         Write-Output "[FileOps] Directory not found."
