@@ -26,6 +26,6 @@ Write-Output "You can find all nearby the script."
 eventLogger -Message "You can find them nearby the script."
 Write-Output (Get-Location).Path
 eventLogger -Message (Get-Location).Path
-eventLogger -Message "All processes are done."
+eventLogger -Message "All processes are done.`n"
 Write-Output "Exiting..`n"
 Start-Sleep 2.36
