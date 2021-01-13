@@ -19,8 +19,8 @@ Start-Sleep 1.76
 createDirectory -DIR_NAME $WALLPAPERS -DIR_PATH $BASE
 createDirectory -DIR_NAME $ASSETS -DIR_PATH ($BASE + $WALLPAPERS)
 
-fetchWallpapers -WP_PATH $WP_PATH
-fetchAssets -ASSET_PATH $ASSET_PATH
+fetchWallpapers -WP_PATH $WP_PATH -DEST_PATH ($BASE + $WALLPAPERS)
+fetchAssets -ASSET_PATH $ASSET_PATH -DEST_PATH ($BASE + $WALLPAPERS + $ASSETS)
 
 Write-Output "You can find all nearby the script."
 eventLogger -Message "You can find them nearby the script."
